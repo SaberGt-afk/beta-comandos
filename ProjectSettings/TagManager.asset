@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Plataform
   - Ground
+  - Xylo1
+  - Xylo2
+  - Xylo3
+  - Xylo4
+  - Xylo5
   layers:
   - Default
   - TransparentFX
