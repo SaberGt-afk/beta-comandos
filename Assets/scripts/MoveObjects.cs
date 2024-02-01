@@ -10,6 +10,8 @@ public class MoveObjects : MonoBehaviour
     public GameObject textGm;
     public string texto;
 
+    public float speed;
+
     //MoverObjeto
     public Transform objetoParaMover;
     float x;
@@ -19,6 +21,9 @@ public class MoveObjects : MonoBehaviour
     //Escolher a tecla para subir e descer
     public KeyCode cima = KeyCode.U;
     public KeyCode baixo = KeyCode.J;
+    bool isKeyPressedUP;
+    bool isKeyPressedDOWN;
+    bool isKeyPressed;
 
     //Enumerador para escolher o tipo de Movimento
     public TipodeMovimento tipoMovimento;
@@ -38,14 +43,34 @@ public class MoveObjects : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(cima))
+
+        if(isKeyPressedDOWN || isKeyPressedUP)
         {
-            y += 1 * Time.deltaTime;
+            isKeyPressed = true;
         }
-        if (Input.GetKey(baixo))
+        else if(isKeyPressedDOWN == false || isKeyPressedUP == false)
         {
-            y -= 1 * Time.deltaTime;
+            isKeyPressed = false;
         }
+        if(Input.GetKey(cima))
+       {
+            y += speed * Time.deltaTime;
+            isKeyPressedUP = true;
+       } 
+       else
+       {
+           isKeyPressedUP = false; 
+       }
+       if (Input.GetKey(baixo))
+       {
+            y -= speed * Time.deltaTime;
+            isKeyPressedDOWN = true;
+       }
+       else 
+       {
+            isKeyPressedDOWN = false;
+       }
+       
     }
 
     private void OnTriggerStay(Collider other)
@@ -60,8 +85,16 @@ public class MoveObjects : MonoBehaviour
             switch (tipoMovimento)
             {
                 case TipodeMovimento.CimaBaixo:
-                    moveDirection = new Vector3(x, y,0.0f );
-                    objetoParaMover.transform.Translate(moveDirection * Time.deltaTime);
+                    if(isKeyPressed)
+                    {
+                        moveDirection = new Vector3(0.0f, y,0.0f );
+                        objetoParaMover.transform.Translate(moveDirection * Time.deltaTime);
+                    }
+                    else
+                    {
+                        objetoParaMover.Translate(Vector3.zero);
+                    }
+                    
                     break;
                 case TipodeMovimento.Reto:
                     objetoParaMover.transform.Translate(moveDirection * Time.deltaTime);
