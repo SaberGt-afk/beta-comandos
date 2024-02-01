@@ -31,7 +31,10 @@ public class MoveObjects : MonoBehaviour
     public enum TipodeMovimento
     {
         CimaBaixo,
-        Reto
+        Reto,
+        EsquerdaDireita
+
+        
     }
 
     private void Start()
@@ -87,7 +90,7 @@ public class MoveObjects : MonoBehaviour
                 case TipodeMovimento.CimaBaixo:
                     if(isKeyPressed)
                     {
-                        moveDirection = new Vector3(0.0f, y,0.0f );
+                        moveDirection = new Vector3(0.0f, 0.0f,y );
                         objetoParaMover.transform.Translate(moveDirection * Time.deltaTime);
                     }
                     else
@@ -98,6 +101,18 @@ public class MoveObjects : MonoBehaviour
                     break;
                 case TipodeMovimento.Reto:
                     objetoParaMover.transform.Translate(moveDirection * Time.deltaTime);
+                    break;
+                case TipodeMovimento.EsquerdaDireita:
+                    if(isKeyPressed)
+                    {
+                        moveDirection = new Vector3(y, 0.0f, 0.0f);
+                        objetoParaMover.transform.Translate(moveDirection * Time.deltaTime);
+                    }
+                    else
+                    {
+                        objetoParaMover.Translate(Vector3.zero);
+                    }
+                    
                     break;
                 default:
                     break;
