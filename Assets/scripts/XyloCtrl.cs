@@ -6,7 +6,8 @@ public class XyloCtrl : MonoBehaviour
 {
     private string fullInput = "";
     public string keyCode;
-    
+
+    private bool orbIsSpawned = false;
     [SerializeField] private GameObject orbPrefab;
     [SerializeField] private Transform orbLocation;
 
@@ -22,9 +23,15 @@ public class XyloCtrl : MonoBehaviour
             fullInput = "";
         }
 
-        if (fullInput == keyCode)
+        if (fullInput.Length == 5)
+        {
+            Debug.Log(fullInput);
+        }
+
+        if (fullInput == keyCode && !orbIsSpawned)
         {
             Instantiate(orbPrefab, orbLocation.position, Quaternion.identity);
+            orbIsSpawned = true;
         }
     }
 }

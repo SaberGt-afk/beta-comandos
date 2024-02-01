@@ -9,9 +9,9 @@ public class XyloPad : MonoBehaviour
     Collider col;
 
     public XyloCtrl main;
-    public bool isPressed;
+    [HideInInspector] public bool isPressed;
 
-    public string input = "";
+    [HideInInspector] public string input = "";
 
     public PadType padType = new PadType();
     void OnTriggerEnter(Collider col)

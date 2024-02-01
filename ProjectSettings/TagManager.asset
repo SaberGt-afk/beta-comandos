@@ -6,11 +6,7 @@ TagManager:
   tags:
   - Plataform
   - Ground
-  - Xylo1
-  - Xylo2
-  - Xylo3
-  - Xylo4
-  - Xylo5
+  - ThingyToMove
   layers:
   - Default
   - TransparentFX
@@ -18,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Buttons
   - 
   - 
   - 
