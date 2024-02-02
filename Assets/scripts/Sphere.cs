@@ -7,11 +7,12 @@ public class Sphere : MonoBehaviour
     [SerializeField] private Collider col;
     private GameObject thingyToMove;
     
-    [HideInInspector] public bool isPickedUp = false;
+    [HideInInspector] public bool isPickedUp;
 
     void Start()
     {
         thingyToMove = GameObject.FindGameObjectWithTag("ThingyToMove");
+        isPickedUp = false;
     }
     void OnTriggerEnter(Collider col)
     {
@@ -19,7 +20,7 @@ public class Sphere : MonoBehaviour
         {
             isPickedUp = true;
             Destroy(this.gameObject);
-            thingyToMove.transform.Translate(0, 10, 0);
+            Destroy(thingyToMove.gameObject);
         }
     }
 }
