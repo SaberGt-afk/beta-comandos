@@ -7,7 +7,7 @@ public class MoveObjects : MonoBehaviour
 {
     //Texto que aparece quando o jogador tiver no trigger
     public Text textoObj;
-    public GameObject textGm;
+    //public GameObject textGm;
     public string texto;
 
     public float speed;
@@ -41,7 +41,7 @@ public class MoveObjects : MonoBehaviour
     {
         //Color o texto = a string e por o obj texto invisivel
         textoObj.text = texto;
-        textGm.SetActive(false);
+        //textGm.SetActive(false);
     }
 
     private void Update()
@@ -79,7 +79,7 @@ public class MoveObjects : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //Por o obj texto visivel quando entrar no trigger
-        textGm.SetActive(true);
+        //textGm.SetActive(true);
 
         //Se a Tag do Objeto a entrar no trigger for == Player fazer o seguinte:
         if (other.CompareTag("Player"))
@@ -123,7 +123,7 @@ public class MoveObjects : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //Por o obj de texto Invisivel quando sair do trigger
-        textGm.SetActive(false);
+        //textGm.SetActive(false);
         objetoParaMover.Translate(Vector3.zero);
         
     }

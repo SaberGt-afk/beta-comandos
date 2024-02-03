@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8977187222828693875}
   - component: {fileID: 3555943980134394646}
   - component: {fileID: 7375262152769386179}
+  - component: {fileID: 3451737362534433635}
   - component: {fileID: 6813949228271502247}
-  - component: {fileID: 1425567444486163229}
   - component: {fileID: 7797705024892813654}
   m_Layer: 0
   m_Name: Sphere
@@ -86,6 +86,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3451737362534433635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873412085301626341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e3a13837cb3124eb0ad6141e75d48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col: {fileID: 6813949228271502247}
+  speed: 7
+  isPickedUp: 0
 --- !u!65 &6813949228271502247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,19 +122,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.59, y: 5.09, z: 5.12}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1425567444486163229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873412085301626341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e3a13837cb3124eb0ad6141e75d48b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col: {fileID: 6813949228271502247}
 --- !u!122 &7797705024892813654
 Halo:
   m_ObjectHideFlags: 0

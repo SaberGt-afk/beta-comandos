@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RockFall : MonoBehaviour
 {
-    [SerializeField] private Collider col;
+    public Collider col;
     [SerializeField] private Rigidbody rock1;
     [SerializeField] private Rigidbody rock2;
     [SerializeField] private Rigidbody rock3;
@@ -17,8 +17,13 @@ public class RockFall : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        rock1.useGravity = true;
-        rock2.useGravity = true;
-        rock3.useGravity = true;
+        if(col.gameObject.tag == "Player")
+        {
+            Debug.Log("U are in the space");
+            rock1.useGravity = true;
+            rock2.useGravity = true;
+            rock3.useGravity = true;
+        }
+        
     }
 }
